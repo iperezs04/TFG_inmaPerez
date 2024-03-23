@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "5398846172",
+    "project_id": "tfginmaperez",
+    "storage_bucket": "tfginmaperez.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5398846172:android:561549108c7d00b478f219",
+        "android_client_info": {
+          "package_name": "com.example.tfg_inmaperez"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyTmvKWK33Sn_gHvA58ZOpyc1ZKcOcwIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
