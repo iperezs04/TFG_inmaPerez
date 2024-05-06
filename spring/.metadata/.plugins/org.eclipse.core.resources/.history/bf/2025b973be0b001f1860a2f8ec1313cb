@@ -1,0 +1,9 @@
+package com.tfginma.app.valoracion.infrastructure;
+
+public interface IValoracionService {
+
+	public Valoracion getValoracionMedia();
+	
+	public Valoracion publicarValoracion();
+	
+}

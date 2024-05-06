@@ -1,0 +1,11 @@
+package com.tfginma.app.valoracion.infrastructure;
+
+import com.tfginma.app.valoracion.domain.Valoracion;
+
+public interface IValoracionService {
+
+	public Valoracion getValoracionMedia();
+	
+	public Valoracion publicarValoracion();
+	
+}

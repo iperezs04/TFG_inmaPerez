@@ -1,0 +1,14 @@
+package com.tfginma.app.comentario.intrastructure;
+
+import java.util.List;
+
+public interface IComentarioService {
+
+	public List<Comentario> getComentarios();
+	
+	public Comentario publicarComentario();
+	
+	public Comentario borrarComentario();
+	
+	
+}

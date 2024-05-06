@@ -1,0 +1,5 @@
+package com.tfginma.app.comentario.domain;
+
+public class Comentario {
+
+}

@@ -1,0 +1,5 @@
+package com.tfginma.app.comentario.intrastructure;
+
+public interface IComentarioService {
+
+}

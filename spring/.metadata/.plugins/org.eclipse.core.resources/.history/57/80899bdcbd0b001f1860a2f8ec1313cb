@@ -1,0 +1,17 @@
+package com.tfginma.app.peliculaserie.infrastructure;
+
+import java.util.List;
+
+import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
+
+public interface IPeliculaSerieService {
+
+	
+	public List<PeliculaSerie> getPeliculaSerie();
+	
+	public PeliculaSerie addPeliSerie();
+	
+	public PeliculaSerie deletePeliSerie();
+	
+	
+}

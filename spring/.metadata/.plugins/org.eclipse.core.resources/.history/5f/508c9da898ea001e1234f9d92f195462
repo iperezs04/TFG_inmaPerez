@@ -1,0 +1,5 @@
+package com.tfginma.app.valoracion.domain;
+
+public class Valoracion {
+
+}

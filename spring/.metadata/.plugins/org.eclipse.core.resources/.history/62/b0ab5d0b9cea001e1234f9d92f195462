@@ -1,0 +1,38 @@
+package com.tfginma.app.valoracion.domain;
+
+import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
+import com.tfginma.app.user.domain.User;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Valoracion {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Min(value = 1)
+	private Long idValoracion;
+	
+	//esto es un lio que flipas, he utilizado manytoOne en las dos siguientes Ids pero
+	//hace falta saber que usuario pone la valoracion  para que no ponga dos valoraciones
+	@ManyToOne
+	private User usuario;
+	@ManyToOne
+	private PeliculaSerie peliculaSerie;
+	
+	private Integer valor;
+
+}

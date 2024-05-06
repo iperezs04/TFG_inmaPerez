@@ -1,0 +1,9 @@
+package com.tfginma.app.comentario.domain;
+
+import com.tfginma.app.user.domain.User;
+
+public class IDComentarioPeliUsuario {
+
+	private Comentario comentario;
+	private User usuario;
+}

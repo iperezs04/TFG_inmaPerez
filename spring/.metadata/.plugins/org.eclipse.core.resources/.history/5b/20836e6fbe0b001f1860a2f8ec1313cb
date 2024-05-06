@@ -1,0 +1,17 @@
+package com.tfginma.app.user.infrastructure;
+
+import java.util.List;
+
+import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
+import com.tfginma.app.user.domain.User;
+
+public interface IUserService {
+
+	public List<PeliculaSerie> getPelisSeriesFav();
+	
+	public List<User> getSeguidos();
+	
+	public List<User> getSeguidores();
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.tfginma.app.user.infrastructure;
+
+public interface IUserService {
+
+}

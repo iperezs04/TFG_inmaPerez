@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;TFG_inma_spring&apos;" deleteContents="true" description="Delete resource &apos;TFG_inma_spring&apos;" element1="/TFG_inma_spring" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1711207812596"/>
+</session>

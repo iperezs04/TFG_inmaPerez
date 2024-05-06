@@ -1,0 +1,5 @@
+package com.tfginma.app.peliculaserie.infrastructure;
+
+public interface IPeliculaSerieService {
+
+}

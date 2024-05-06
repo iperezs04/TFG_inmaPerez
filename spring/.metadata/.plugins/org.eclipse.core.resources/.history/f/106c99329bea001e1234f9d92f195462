@@ -1,0 +1,5 @@
+package com.tfginma.app.user.domain;
+
+public class User {
+
+}

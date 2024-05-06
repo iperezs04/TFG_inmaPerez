@@ -1,0 +1,27 @@
+package com.tfginma.app.comentario.domain;
+
+import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
+import com.tfginma.app.user.domain.User;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ComentarioPeliUsuario {
+
+	
+		@Id 
+		private Comentario comentario;
+		@Id
+		private User usuario;
+		@Id
+		private PeliculaSerie peliculaSerie;
+}
