@@ -58,4 +58,13 @@ public class PeliculaSerie {
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Valoracion> valoracion;
+	
+	public void setDatosModificados(PeliculaSerie peliculaSerie) {
+		 this.setTitulo(peliculaSerie.getTitulo());
+		 this.setTipo(peliculaSerie.getTipo());
+		 this.setGenero(peliculaSerie.getGenero());
+		 this.setTemporada(peliculaSerie.getTemporada());
+		 this.setSinopsis(peliculaSerie.getSinopsis());
+		 this.setImagen(peliculaSerie.getImagen());
+	}
 }

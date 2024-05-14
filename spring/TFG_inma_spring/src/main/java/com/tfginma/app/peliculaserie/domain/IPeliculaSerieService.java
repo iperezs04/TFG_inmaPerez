@@ -1,15 +1,19 @@
 package com.tfginma.app.peliculaserie.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IPeliculaSerieService {
 
+	public Optional<List<PeliculaSerie>> getPeliculaSerie();
 	
-	public List<PeliculaSerie> getPeliculaSerie();
+	public Optional<List<PeliculaSerie>> getPeliculaSeriePorTipo(Tipo tipo);
 	
-	public PeliculaSerie addPeliSerie();
+	public Optional<List<PeliculaSerie>> getPeliculaSeriePorGenero(Genero genero);
 	
-	public PeliculaSerie deletePeliSerie();
+	public Optional<PeliculaSerie> addPeliSerie(PeliculaSerie peliculaSerie);
 	
-	public PeliculaSerie modifyPeliSerie();
+	public Optional<PeliculaSerie> deletePeliSerie(Long id);
+	
+	public Optional<PeliculaSerie> modifyPeliSerie(Long id, PeliculaSerie peliculaSerie);
 }

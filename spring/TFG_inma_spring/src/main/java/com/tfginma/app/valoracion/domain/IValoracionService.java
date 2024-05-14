@@ -1,9 +1,14 @@
 package com.tfginma.app.valoracion.domain;
 
+import java.util.Optional;
+
+import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
+import com.tfginma.app.user.domain.User;
+
 public interface IValoracionService {
 
-	public Valoracion getValoracionMedia();
+	public Optional<Double> getValoracionMedia();
 	
-	public Valoracion publicarValoracion();
+	public Optional<Valoracion> publicarValoracion(Valoracion valoracion, User usuario, PeliculaSerie peliculaSerie);
 	
 }

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "5398846172",
-    "project_id": "tfginmaperez",
-    "storage_bucket": "tfginmaperez.appspot.com"
+    "project_number": "805245602353",
+    "project_id": "showtime-v1",
+    "storage_bucket": "showtime-v1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:5398846172:android:561549108c7d00b478f219",
+        "mobilesdk_app_id": "1:805245602353:android:f14ba0d36f2753fc5aa310",
         "android_client_info": {
           "package_name": "com.example.tfg_inmaperez"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCyTmvKWK33Sn_gHvA58ZOpyc1ZKcOcwIA"
+          "current_key": "AIzaSyBwa8A1HBufM9ORR5kez6zxLw4iqMDnSvA"
         }
       ],
       "services": {

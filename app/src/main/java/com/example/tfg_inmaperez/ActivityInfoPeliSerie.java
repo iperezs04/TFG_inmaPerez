@@ -6,19 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class ActivityPerfil extends AppCompatActivity {
-
-    Button atrass;
+public class ActivityInfoPeliSerie extends AppCompatActivity {
+TextView  titulo;
+Button atras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
-        atrass=findViewById(R.id.btnatrasMA1);
+        setContentView(R.layout.activity_info_peli_serie);
+        titulo=findViewById(R.id.tvtitulo);
 
 
+        atras=findViewById(R.id.btnatrasMAA);
 
-        atrass.setOnClickListener(new View.OnClickListener() {
+
+        atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentAtras = new Intent(getApplicationContext(), MainActivity.class);

@@ -4,4 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityBuscar"/>
+    tools:context=".ActivityBuscar">
+
+    <Button
+        android:id="@+id/btnparaMA"
+        android:layout_width="79dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#00885151"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#B85D5D"
+        android:textColorLink="#28A493C1"
+        app:icon="@drawable/baseline_arrow_back_24"
+        app:iconSize="30dp"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <EditText
+        android:id="@+id/edttitulobuscar"
+        android:layout_width="373dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Titulo:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.058" />
+
+    <SearchView
+        android:layout_width="409dp"
+        android:layout_height="561dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="100dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
