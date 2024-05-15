@@ -11,6 +11,8 @@ public interface IPeliculaSerieService {
 	
 	public Optional<List<PeliculaSerie>> getPeliculaSeriePorGenero(Genero genero);
 	
+	public Optional<List<PeliculaSerie>> getPeliculaSeriePorIds(List<Long> ids);
+	
 	public Optional<PeliculaSerie> addPeliSerie(PeliculaSerie peliculaSerie);
 	
 	public Optional<PeliculaSerie> deletePeliSerie(Long id);

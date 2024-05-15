@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
-
+@Service
 public class UserServiceImplementation implements IUserService {
 	@Autowired
 	private IUserRepository userRepository;

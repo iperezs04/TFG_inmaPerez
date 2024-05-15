@@ -2,6 +2,9 @@ package com.tfginma.app.valoracion.domain;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +33,7 @@ public class Valoracion {
 	private Integer valor;
 	
 	@OneToMany(mappedBy="valoracion")
+	@Cascade(CascadeType.ALL)
 	private List<ValoracionPeliUsuario> valoraciones;
 
 }

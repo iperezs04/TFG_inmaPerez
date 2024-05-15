@@ -1,12 +1,14 @@
 package com.tfginma.app.valoracion.domain;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
 import com.tfginma.app.user.domain.User;
-
+@Service
 public class ValoracionServiceImplementation implements IValoracionService {
 	@Autowired
 	private IValoracionRepository valoracionRepository;
@@ -17,14 +19,21 @@ public class ValoracionServiceImplementation implements IValoracionService {
 	}
 
 	@Override
-	public Optional<Double> getValoracionMedia() {
-		return Optional.of((valoracionRepository
+	public Optional<Double> getValoracionMedia(Long id) {
+		return Optional.of(valoracionRepository
 					.findAll()
-						.stream()
-							.mapToDouble(valoracion->
-									valoracion.getValor())
-							.average())
-				.getAsDouble());
+						.stream().
+							flatMap(valoracion-> 
+								valoracion.getValoraciones()
+									.stream())
+										.filter(valoracionesPeliSeries->
+											valoracionesPeliSeries.getPeliculaSerie().getIdPeliculaSerie()==id)
+										.collect(Collectors.toList())
+									.stream()
+										.mapToDouble(valores->
+											valores.getValoracion().getValor())
+							.average()
+						.getAsDouble());								
 	}
 
 	@Override

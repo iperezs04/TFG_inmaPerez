@@ -5,7 +5,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
+@Service
 public class PeliculaSerieServiceImplementation implements IPeliculaSerieService {
 	@Autowired
 	private IPeliSerieRepository peliSerieRepository;
@@ -41,6 +42,16 @@ public class PeliculaSerieServiceImplementation implements IPeliculaSerieService
 	}
 
 	@Override
+	public Optional<List<PeliculaSerie>> getPeliculaSeriePorIds(List<Long> ids) {
+		return Optional.of(peliSerieRepository
+				.findAll()
+					.stream()
+						.filter(peliSerie->
+									ids.contains(peliSerie.getIdPeliculaSerie()))
+						.collect(Collectors.toList()));
+	}
+	
+	@Override
 	public Optional<PeliculaSerie> addPeliSerie(PeliculaSerie peliculaSerie) {
 		return Optional.of(peliSerieRepository.save(peliculaSerie));
 	}
@@ -61,6 +72,7 @@ public class PeliculaSerieServiceImplementation implements IPeliculaSerieService
 							{peliSerie.setDatosModificados(peliculaSerie);
 								return peliSerieRepository.save(peliSerie);});
 	}
+
 
 	
 

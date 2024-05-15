@@ -2,6 +2,9 @@ package com.tfginma.app.comentario.domain;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,5 +31,6 @@ public class Comentario {
 	private String texto;
 	
 	@OneToMany(mappedBy="comentario")
+	@Cascade(CascadeType.ALL)
 	private List<ComentarioPeliUsuario> comentarios;
 }

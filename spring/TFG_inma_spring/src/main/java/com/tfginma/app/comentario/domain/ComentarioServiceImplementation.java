@@ -5,10 +5,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
 import com.tfginma.app.user.domain.User;
-
+@Service
 public class ComentarioServiceImplementation implements IComentarioService {
 	@Autowired
 	private ComentarioRepository comentarioRepository;
