@@ -7,7 +7,7 @@ import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,6 +27,7 @@ public class User {
 	private Long idUser;
 	private String nombre;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	
 	private List<PeliculaSerie> peliculaSerieFavorita;
 }

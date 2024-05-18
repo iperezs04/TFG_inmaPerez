@@ -8,12 +8,14 @@ import com.tfginma.app.valoracion.domain.Valoracion;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
@@ -36,9 +38,9 @@ public class PeliculaSerie {
 	private Long idPeliculaSerie;
 	
 	private String titulo;
-	
+	   @Enumerated(EnumType.STRING)
 	private Tipo tipo;
-	
+	   @Enumerated(EnumType.STRING)
 	private Genero genero;
 	
 	private String temporada;
@@ -47,9 +49,9 @@ public class PeliculaSerie {
 	
 	private String imagen;
 	
-	@ManyToOne
-	@JoinColumn(name = "idUser")
-	private User usuario;
+	@ManyToMany
+	@JoinTable(name = "UserPeliFav")
+	private List<User> usuario;
 	private float valoracionMedia;
 	
 	@ManyToMany(cascade = CascadeType.ALL)

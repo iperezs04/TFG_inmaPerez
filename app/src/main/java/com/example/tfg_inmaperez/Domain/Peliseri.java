@@ -1,0 +1,81 @@
+package com.example.tfg_inmaperez.Domain;
+
+import com.google.firebase.firestore.auth.User;
+
+import java.util.List;
+
+public class Peliseri {
+
+    private Long idPeliculaSerie;
+    private String titulo;
+    private String tipo;
+    private String genero;
+    private String temporada;
+    private String sinopsis;
+    private String imagen;
+    private float valoracionMedia;
+
+    public Long getIdPeliculaSerie() {
+        return idPeliculaSerie;
+    }
+
+    public void setIdPeliculaSerie(Long idPeliculaSerie) {
+        this.idPeliculaSerie = idPeliculaSerie;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(String temporada) {
+        this.temporada = temporada;
+    }
+
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public float getValoracionMedia() {
+        return valoracionMedia;
+    }
+
+    public void setValoracionMedia(float valoracionMedia) {
+        this.valoracionMedia = valoracionMedia;
+    }
+}

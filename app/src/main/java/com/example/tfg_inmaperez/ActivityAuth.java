@@ -87,7 +87,7 @@ public class ActivityAuth extends AppCompatActivity {
                String passUser = password.getText().toString().trim();
 
                if (emailUser.isEmpty() && passUser.isEmpty()) {
-                   Toast.makeText(ActivityAuth.this, "No está registrado", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(ActivityAuth.this, "Error. Complete los campos", Toast.LENGTH_SHORT).show();
                } else {
                    registerUser(emailUser, passUser);
 
@@ -109,10 +109,11 @@ public class ActivityAuth extends AppCompatActivity {
                        mFirestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                            @Override
                            public void onSuccess(Void unused) {
+                               Toast.makeText(ActivityAuth.this, "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(ActivityAuth.this, MainActivity.class));
                                finish();
 
-                               Toast.makeText(ActivityAuth.this, "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
+
                            }
                        }).addOnFailureListener(new OnFailureListener() {
                            @Override
