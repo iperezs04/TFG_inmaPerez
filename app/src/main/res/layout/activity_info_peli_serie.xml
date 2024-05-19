@@ -7,6 +7,20 @@
     android:background="@drawable/backfont"
     tools:context=".ActivityInfoPeliSerie">
 
+    <TextView
+        android:id="@+id/txtvaloracionmedia2"
+        android:layout_width="145dp"
+        android:layout_height="54dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Valoración Media"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.245" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -23,7 +37,9 @@
         android:id="@+id/tvtitulo"
         android:layout_width="230dp"
         android:layout_height="42dp"
+        android:fontFamily="@font/aladin"
         android:text="TITULO"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.198"
@@ -33,14 +49,15 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="244dp"
         android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintVertical_bias="0.247" />
 
     <Button
         android:id="@+id/btnatrasMAA"
@@ -58,42 +75,71 @@
         app:layout_constraintVertical_bias="0.992" />
 
     <TextView
-        android:id="@+id/txtvaloracionmedia"
-        android:layout_width="137dp"
-        android:layout_height="37dp"
-        android:text="Valoracion Media"
-        android:textSize="16sp"
+        android:id="@+id/txtGenero"
+        android:layout_width="120dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Género:"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.865" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:layout_width="364dp"
-        android:layout_height="407dp"
+        android:layout_width="355dp"
+        android:layout_height="292dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.617" />
 
     <TextView
         android:id="@+id/txtinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amaranth_bold"
         android:text="Sinopsis"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.327" />
+
+    <EditText
+        android:id="@+id/edtGenero"
+        style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#5A3333"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <Button
+        android:id="@+id/btnResenia"
+        android:layout_width="150dp"
+        android:layout_height="52dp"
+        android:text="Deja tu reseña"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.963" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

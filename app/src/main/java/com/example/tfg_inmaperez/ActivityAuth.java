@@ -64,9 +64,12 @@ public class ActivityAuth extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             finish();
-                         startActivity(new Intent(ActivityAuth.this, MainActivity.class));
+                        // startActivity(new Intent(ActivityAuth.this, MainActivity.class));
 
+                         Intent intentLogin= new Intent(ActivityAuth.this, MainActivity.class);
+                         intentLogin.putExtra("email", emailUser);
 
+                         startActivity(intentLogin);
                             Toast.makeText(ActivityAuth.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                         }
                     }

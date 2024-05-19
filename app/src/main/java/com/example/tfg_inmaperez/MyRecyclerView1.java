@@ -1,7 +1,7 @@
 package com.example.tfg_inmaperez;
 
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tfg_inmaperez.Domain.Peliseri;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAdapter.ViewHolder> {
+public class MyRecyclerView1 extends RecyclerView.Adapter<MyRecyclerView1.ViewHolder> {
+
+
 
     //al mData le pasamos el tipo correspondiente, sea string, Objeto, etc
     private List<Peliseri> mData;
@@ -24,13 +28,16 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
 
 
 
+
+
     //esto se queda igual MENOS el parametro de entrada
     //dentro del constructor se pasan los datos de cada parametro
     //en el parametro se añade tambien el tipo de data
 
-    public MyRecyclerVIewAdapter(Context contexto, List<Peliseri>data) {
+    public MyRecyclerView1(Context contexto, List<Peliseri>data) {
         this.mData = data;
         this.mInflater = LayoutInflater.from(contexto);
+
     }
 
 
@@ -39,23 +46,22 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View parten=mInflater.inflate(R.layout.recycler_view_item, parent, false);
-        return  new ViewHolder(parten);
+        View parten=mInflater.inflate(R.layout.recycler_view_item_1, parent, false);
+        return new ViewHolder(parten);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyRecyclerView1.ViewHolder holder, int position) {
         Peliseri peli=mData.get(position);
-        // Configurar el click listener
-       /* holder.itemView.setOnClickListener(v -> {
-            animateView(v);
-        });*/
-        if(peli.getBmp()!= null){
-           holder.portada.setImageBitmap(peli.getBmp());
 
+        if(peli.getBmp()!= null){
+            holder.portada.setImageBitmap(peli.getBmp());
         }else{
             holder.portada.setImageResource(R.drawable.error);
         }
+        holder.titulo.setText(peli.getTitulo());
+        holder.genero.setText(peli.getGenero());
+
 
     }
 
@@ -71,14 +77,17 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
     //aqui se cambia
     //va reciclando y almacenando las views para que funcione el scroll de la pantalla
     public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
-       ImageView portada;
+        ImageView portada;
+        TextView titulo;
+        TextView genero;
 
         ViewHolder (View itemView){
             super(itemView);
             //aqui tambien se cambian cosillas
 
-            portada=itemView.findViewById(R.id.imagenPS);
-
+            portada=itemView.findViewById(R.id.imageView2);
+            titulo=itemView.findViewById(R.id.textViewTitulo);
+            genero=itemView.findViewById(R.id.textViewgenero);
             itemView.setOnClickListener(this);
 
         }
@@ -88,7 +97,6 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
             if(mClickListener != null)
                 mClickListener.onItemClick(view,getAdapterPosition());
 
-
         }
     }
     //obtiene la posicion donde se está situado en la pantalla
@@ -97,20 +105,17 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
     }
 
     //todos los clicks por los que va pasando
-    void setClickListener(ItemClickListener itemClickListener){
+    void setClickListener(MyRecyclerView1.ItemClickListener itemClickListener){
         this.mClickListener=itemClickListener;
     }
     //datos que se pasan a activity que implementará el metodo para responder al click
     public interface ItemClickListener {
         void onItemClick(View activista, int position);
     }
-    // Método para animar la vista
-    private void animateView(View view) {
-        view.animate()
-                .translationY(10)
-                .setDuration(100)
-                .withEndAction(() -> view.animate().translationY(0).setDuration(100))
-                .start();
+
+    public void setLista(List<Peliseri> listaPeliculas){
+        this.mData=listaPeliculas;
+        notifyDataSetChanged();
     }
 }
 

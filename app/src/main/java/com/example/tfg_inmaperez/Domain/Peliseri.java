@@ -1,10 +1,15 @@
 package com.example.tfg_inmaperez.Domain;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
+import com.example.tfg_inmaperez.R;
 import com.google.firebase.firestore.auth.User;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Peliseri {
+public class Peliseri implements Serializable {
 
     private Long idPeliculaSerie;
     private String titulo;
@@ -14,6 +19,16 @@ public class Peliseri {
     private String sinopsis;
     private String imagen;
     private float valoracionMedia;
+
+Bitmap bmp;
+
+    public Bitmap getBmp() {
+        return bmp;
+    }
+
+    public void setBmp(Bitmap bmp) {
+        this.bmp = bmp;
+    }
 
     public Long getIdPeliculaSerie() {
         return idPeliculaSerie;
@@ -78,4 +93,5 @@ public class Peliseri {
     public void setValoracionMedia(float valoracionMedia) {
         this.valoracionMedia = valoracionMedia;
     }
+
 }

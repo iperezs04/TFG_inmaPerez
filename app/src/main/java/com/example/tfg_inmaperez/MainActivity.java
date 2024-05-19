@@ -1,10 +1,13 @@
 package com.example.tfg_inmaperez;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
 
         myadapter= new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
         recyclerView = findViewById(R.id.recyclerView);
+
+       // GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+       // recyclerView.setLayoutManager(gridLayoutManager);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(myadapter);
         myadapter.setClickListener(this);
@@ -94,13 +102,11 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
                     List<Peliseri> peliculasSeries = response.body();
                     if (peliculasSeries != null && !peliculasSeries.isEmpty()) {
                         Peliseri primeraPeliculaSerie = peliculasSeries.get(0);
-                        String titulo = primeraPeliculaSerie.getTitulo();
-                        Toast.makeText(MainActivity.this, "Título: " + titulo, Toast.LENGTH_LONG).show();
 
+                        peliculasSeries.forEach(peliseri -> {
+                            fetchImagefromURL(peliculasSeries, peliseri);
+                        });
 
-                        listaPeliserie.clear();
-                        listaPeliserie.addAll(peliculasSeries);
-                        myadapter.notifyDataSetChanged();
 
                     } else {
 
@@ -120,8 +126,44 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
         });
     }
 
+    public void fetchImagefromURL( List<Peliseri> lisPeliSeri ,Peliseri peliseri){
+
+        Call<ResponseBody> call = peliculaSerieApi.fetchCaptcha(peliseri.getImagen());
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+
+                        Bitmap bmp = BitmapFactory.decodeStream(response.body().byteStream());
+                        peliseri.setBmp(bmp);
+
+                        listaPeliserie.clear();
+                        listaPeliserie.addAll(lisPeliSeri);
+                        myadapter.notifyDataSetChanged();
+
+                    } else {
+                        // TODO
+                    }
+                } else {
+                    fetchImagefromURL(lisPeliSeri, peliseri);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                // TODO
+            }
+        });
+
+    }
+
     @Override
     public void onItemClick(View activista, int position) {
         Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
+        Intent intent= new Intent(activista.getContext(),ActivityInfoPeliSerie.class );
+        intent.putExtra("id", myadapter.getItem(position).getIdPeliculaSerie());
+        startActivity(intent);
+        finish();
     }
 }
