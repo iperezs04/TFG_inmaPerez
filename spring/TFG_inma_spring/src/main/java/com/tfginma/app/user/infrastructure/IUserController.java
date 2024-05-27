@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
 
 public interface IUserController {
-	@GetMapping("users/{id}")
-	public ResponseEntity<List<PeliculaSerie>> getPelisSeriesFav(@PathVariable Long id);
+	
+	public ResponseEntity<List<Long>> getPelisSeriesFav(@PathVariable String nombre);
 }

@@ -112,6 +112,10 @@ public class MyRecyclerVIewAdapter extends RecyclerView.Adapter<MyRecyclerVIewAd
                 .withEndAction(() -> view.animate().translationY(0).setDuration(100))
                 .start();
     }
+    public void setLista(List<Peliseri> listaPeliculas){
+        this.mData=listaPeliculas;
+        notifyDataSetChanged();
+    }
 }
 
 

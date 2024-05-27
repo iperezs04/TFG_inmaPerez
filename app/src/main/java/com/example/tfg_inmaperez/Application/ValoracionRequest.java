@@ -1,42 +1,43 @@
 package com.example.tfg_inmaperez.Application;
 
 import com.example.tfg_inmaperez.Domain.Peliseri;
+import com.example.tfg_inmaperez.Domain.User;
 import com.example.tfg_inmaperez.Domain.Valoracion;
-import com.google.firebase.firestore.auth.User;
+
 
 public class ValoracionRequest {
 
-    private Valoracion valoracion;
-    private User usuario;
-    private Peliseri peliserie;
+    private Float valoracion;
+    private String usuario;
+    private Long peliserie;
 
-    public ValoracionRequest(Valoracion valoracion, User usuario, Peliseri peliserie) {
+    public ValoracionRequest(Float valoracion, String usuario, Long peliserie) {
         this.valoracion = valoracion;
         this.usuario = usuario;
         this.peliserie = peliserie;
     }
 
-    public Valoracion getValoracion() {
+    public Float getValoracion() {
         return valoracion;
     }
 
-    public void setValoracion(Valoracion valoracion) {
+    public void setValoracion(Float valoracion) {
         this.valoracion = valoracion;
     }
 
-    public User getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(User usuario) {
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public Peliseri getPeliserie() {
+    public Long getPeliserie() {
         return peliserie;
     }
 
-    public void setPeliserie(Peliseri peliserie) {
+    public void setPeliserie(Long peliserie) {
         this.peliserie = peliserie;
     }
 }

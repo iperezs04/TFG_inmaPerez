@@ -20,7 +20,17 @@ public class Peliseri implements Serializable {
     private String imagen;
     private float valoracionMedia;
 
-Bitmap bmp;
+    private List<Valoracion> listaValoracion;
+
+    public List<Valoracion> getListaValoracion() {
+        return listaValoracion;
+    }
+
+    public void setListaValoracion(List<Valoracion> listaValoracion) {
+        this.listaValoracion = listaValoracion;
+    }
+
+    Bitmap bmp;
 
     public Bitmap getBmp() {
         return bmp;

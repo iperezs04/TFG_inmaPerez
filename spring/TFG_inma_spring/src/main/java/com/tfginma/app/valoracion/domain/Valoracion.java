@@ -30,7 +30,7 @@ public class Valoracion {
 	private Long idValoracion;
 	
 	
-	private Integer valor;
+	private Float valor;
 	
 	@OneToMany(mappedBy="valoracion")
 	@Cascade(CascadeType.ALL)

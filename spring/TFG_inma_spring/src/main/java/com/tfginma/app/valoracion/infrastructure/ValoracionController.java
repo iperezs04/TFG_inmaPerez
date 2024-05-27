@@ -25,11 +25,11 @@ public class ValoracionController implements IValoracionController{
 
 	@Override
 	@GetMapping("media/{id}")
-	public ResponseEntity<Double> getValoracionMedia(@PathVariable Long id) {
+	public ResponseEntity<Float> getValoracionMedia(@PathVariable Long id) {
 		return valoracionService.getValoracionMedia(id)
 					.map(valoracion->
-						new ResponseEntity<Double>(valoracion,HttpStatus.OK))
-				.orElse(new ResponseEntity<Double>(HttpStatus.NOT_FOUND));
+						new ResponseEntity<Float>(valoracion,HttpStatus.OK))
+				.orElse(new ResponseEntity<Float>(HttpStatus.NOT_FOUND));
 	}
 
 	@Override

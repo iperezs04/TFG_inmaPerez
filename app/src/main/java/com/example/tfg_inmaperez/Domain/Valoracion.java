@@ -1,12 +1,15 @@
 package com.example.tfg_inmaperez.Domain;
 
+import java.util.List;
+
 public class Valoracion {
     private Long idValoracion;
 
 
-    private Integer valor;
+    private Float valor;
     private  Long idSerie;
     private Long idUser;
+
 
 
     public Long getIdValoracion() {
@@ -17,11 +20,11 @@ public class Valoracion {
         this.idValoracion = idValoracion;
     }
 
-    public Integer getValor() {
+    public Float getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(Float valor) {
         this.valor = valor;
     }
 

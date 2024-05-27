@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+
+
 public class ActivityInfoPeliSerie extends AppCompatActivity {
     TextView titulo, sinopsis, genero;
     ImageView imagenPeli;
@@ -33,21 +38,29 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
     List<Peliseri> listaPeliserie;
     private PeliService peliculaSerieApi;
     private Peliseri pelicula;
+    String emailrecogido;
+
+    RatingBar ratinEstrellitas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_peli_serie);
         titulo = findViewById(R.id.tvtitulo);
-        sinopsis= findViewById(R.id.editTextTextMultiLine);
-        imagenPeli=findViewById(R.id.imageView);
-        genero=findViewById(R.id.edtGenero);
-        resenia=findViewById(R.id.btnResenia);
+        sinopsis = findViewById(R.id.editTextTextMultiLine);
+        imagenPeli = findViewById(R.id.imageView);
+        genero = findViewById(R.id.edtGenero);
+        resenia = findViewById(R.id.btnResenia);
+        ratinEstrellitas = findViewById(R.id.ratingBar);
+
+
+
 
         Intent intent= getIntent();
         id=intent.getLongExtra("id", 0);
         pelicula=new Peliseri();
 
+        emailrecogido=intent.getStringExtra("email");
 
         atras = findViewById(R.id.btnatrasMAA);
         listaPeliserie= new ArrayList<>();
@@ -71,10 +84,11 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentResenia= new Intent(getApplicationContext(), ActivityValorar.class);
 
-                intentResenia.putExtra("usuario", "email");
+                intentResenia.putExtra("usuario", emailrecogido);
                 intentResenia.putExtra("pelicula", pelicula.getIdPeliculaSerie());
+
                 startActivity(intentResenia);
-                finish();
+               finish();
 
             }
         });

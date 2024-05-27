@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backfont"
+    android:background="@drawable/back1"
     tools:context=".ActivityBuscar">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:id="@+id/searchvw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Buscar películas" >
+            android:queryHint="Buscar películas">
 
         </androidx.appcompat.widget.SearchView>
 

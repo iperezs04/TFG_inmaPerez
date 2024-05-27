@@ -36,6 +36,7 @@ public class ActivityBuscar extends AppCompatActivity implements  MyRecyclerView
 
     MyRecyclerView1 myadapter;
     private List<Peliseri> pelisfiltradas;
+    String emailRecogido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,8 @@ public class ActivityBuscar extends AppCompatActivity implements  MyRecyclerView
         setContentView(R.layout.activity_buscar);
         atras=findViewById(R.id.btnparaMA);
 
-
+        Intent intentemail= getIntent();
+        emailRecogido=intentemail.getStringExtra("email");
 
         listaPeliserie= new ArrayList<>();
         peliculaSerieApi = ApiClient.getClient().create(PeliService.class);
@@ -155,6 +157,12 @@ public class ActivityBuscar extends AppCompatActivity implements  MyRecyclerView
     @Override
     public void onItemClick(View activista, int position) {
         Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
+        Intent intent= new Intent(activista.getContext(),ActivityInfoPeliSerie.class );
+        intent.putExtra("id", myadapter.getItem(position).getIdPeliculaSerie());
+
+        intent.putExtra("email", emailRecogido);
+        startActivity(intent);
+        finish();
     }
 
     public void filtrar(String texto) {
@@ -166,11 +174,7 @@ public class ActivityBuscar extends AppCompatActivity implements  MyRecyclerView
                     .toLowerCase()
                     .contains(texto.toLowerCase())).collect(Collectors.toList());
 
-           /* for (Peliseri pelicula : mData) {
-                if (pelicula.getTitulo().toLowerCase().contains(texto) ) {
-                    pelisfiltradas.add(pelicula);
-                }
-            }*/
+
 
             myadapter.setLista(pelisfiltradas);
         }else{

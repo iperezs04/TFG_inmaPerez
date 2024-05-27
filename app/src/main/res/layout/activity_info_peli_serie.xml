@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backfont"
+    android:background="@drawable/back1"
     tools:context=".ActivityInfoPeliSerie">
 
     <TextView
@@ -23,8 +23,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="143dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -37,8 +38,11 @@
         android:id="@+id/tvtitulo"
         android:layout_width="230dp"
         android:layout_height="42dp"
+        android:background="#75FFFFFF"
+        android:backgroundTint="#22E3BDBD"
         android:fontFamily="@font/aladin"
         android:text="TITULO"
+        android:textColor="#070000"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +84,7 @@
         android:layout_height="41dp"
         android:fontFamily="@font/amaranth_bold"
         android:text="Género:"
+        android:textColor="#070000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,11 +95,21 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:layout_width="355dp"
-        android:layout_height="292dp"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:background="@drawable/edittext_bg"
+        android:backgroundTint="#009A4848"
         android:ems="10"
+
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:lines="5"
+        android:padding="8dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
@@ -106,8 +121,11 @@
         android:id="@+id/txtinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#8FFFFFFF"
+        android:backgroundTint="#46F6F3F3"
         android:fontFamily="@font/amaranth_bold"
         android:text="Sinopsis"
+        android:textColor="#0B0000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,14 +150,18 @@
 
     <Button
         android:id="@+id/btnResenia"
-        android:layout_width="150dp"
-        android:layout_height="52dp"
-        android:text="Deja tu reseña"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/baseline_star_border_24"
+        app:iconSize="36dp"
+        app:iconTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963" />
+        app:layout_constraintVertical_bias="0.989" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

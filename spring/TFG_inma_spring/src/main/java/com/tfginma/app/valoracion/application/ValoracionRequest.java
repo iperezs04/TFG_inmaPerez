@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ValoracionRequest {
-	private Optional<PeliculaSerie> peliserie;
-	private Optional<Valoracion> valoracion;
-	private Optional<User> usuario;
+	private Optional<Long> peliserie;
+	private Optional<Float> valoracion;
+	private Optional<String> usuario;
 }

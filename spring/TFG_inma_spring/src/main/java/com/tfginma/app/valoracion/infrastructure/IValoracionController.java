@@ -11,7 +11,7 @@ import com.tfginma.app.valoracion.domain.Valoracion;
 
 public interface IValoracionController {
 	@GetMapping("media/{id}")
-	public ResponseEntity<Double> getValoracionMedia(@PathVariable Long id);
+	public ResponseEntity<Float> getValoracionMedia(@PathVariable Long id);
 	@PostMapping("publicar")
 	public ResponseEntity<Valoracion> publicarValoracion(@RequestBody ValoracionRequest valoracionRequest);
 }

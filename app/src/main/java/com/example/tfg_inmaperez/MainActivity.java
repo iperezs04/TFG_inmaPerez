@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -20,9 +21,13 @@ import com.example.tfg_inmaperez.Infrastructure.ApiClient;
 
 import com.example.tfg_inmaperez.Infrastructure.PeliService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -36,9 +41,11 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
     BottomNavigationView bottomNavi;
     private PeliService peliculaSerieApi;
     RecyclerView recyclerView;
-    List<Peliseri> listaPeliserie;
+    List<Peliseri> listaPeliserie, pelisLista, seriesLista;
 
     MyRecyclerVIewAdapter myadapter;
+    String emailRecogido, tipopeli,tiposerie;
+    ImageView imagenicon;
 
 
     @Override
@@ -48,20 +55,68 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
         bottomNavi = findViewById(R.id.bottomNavigationView);
         btnPelis = findViewById(R.id.buttonPelis);
         btnSeries = findViewById(R.id.buttonSeries);
-
-
+        imagenicon=findViewById(R.id.imageView3);
+        imagenicon.setImageResource(R.mipmap.claqueta_foreground);
         listaPeliserie= new ArrayList<>();
+        pelisLista=new ArrayList<>();
+        seriesLista=new ArrayList<>();
+        tipopeli="pelicula";
+        tiposerie="serie";
+        Intent intentemail= getIntent();
+                emailRecogido=intentemail.getStringExtra("email");
 
-        myadapter= new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
+
+       /* myadapter= new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
         recyclerView = findViewById(R.id.recyclerView);
 
-       // GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-       // recyclerView.setLayoutManager(gridLayoutManager);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(myadapter);
+        myadapter.setClickListener(this);*/
+        myadapter = new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
+        recyclerView = findViewById(R.id.recyclerView);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(myadapter);
         myadapter.setClickListener(this);
 
+
+
+        btnSeries.setOnClickListener(v -> {
+            if (!listaPeliserie.isEmpty()) {
+                seriesLista= listaPeliserie.stream().filter(peliseri -> peliseri
+                        .getTipo()
+                        .toLowerCase()
+                        .contains(tiposerie.toLowerCase())).collect(Collectors.toList());
+
+
+
+                myadapter.setLista(seriesLista);
+            }else{
+                myadapter.setLista(listaPeliserie);
+            }
+
+
+        });
+
+        btnPelis.setOnClickListener(v -> {
+            if (!listaPeliserie.isEmpty()) {
+                pelisLista= listaPeliserie.stream().filter(peliseri -> peliseri
+                        .getTipo()
+                        .toLowerCase()
+                        .contains(tipopeli.toLowerCase())).collect(Collectors.toList());
+
+
+
+                myadapter.setLista(pelisLista);
+            }else{
+                myadapter.setLista(listaPeliserie);
+            }
+
+
+
+        });
 
         //menuNavi y opciones
         bottomNavi.setOnItemSelectedListener(item ->
@@ -91,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
         peliculaSerieApi = ApiClient.getClient().create(PeliService.class);
 
         fetchPeliculaSerie();
+
+
     }
 
    private void fetchPeliculaSerie() {
@@ -122,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
             @Override
             public void onFailure(Call<List<Peliseri>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Fallo en la solicitud: " + t.getMessage(), Toast.LENGTH_LONG).show();
+           Log.d("fallito",t.getMessage() );
             }
         });
     }
@@ -163,7 +221,12 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
         Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
         Intent intent= new Intent(activista.getContext(),ActivityInfoPeliSerie.class );
         intent.putExtra("id", myadapter.getItem(position).getIdPeliculaSerie());
+
+        intent.putExtra("email", emailRecogido);
+
+
         startActivity(intent);
         finish();
     }
+
 }

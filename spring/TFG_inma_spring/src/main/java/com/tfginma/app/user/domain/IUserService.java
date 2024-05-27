@@ -7,11 +7,12 @@ import com.tfginma.app.peliculaserie.domain.PeliculaSerie;
 
 public interface IUserService {
 
-	public Optional<List<PeliculaSerie>> getPelisSeriesFav(Long id);
+	public Optional<List<Long>> getPelisSeriesFav(String nombre);
 	
 //	public Optional<List<User>> getSeguidos(Long id);
 //	
 //	public Optional<List<User>> getSeguidores(Long id);
+	public Optional<Long> addPeliFav(String nombre, Long idPeli);
 	
-	
+	public User addUser(String email);
 }
