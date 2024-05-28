@@ -50,7 +50,7 @@ public class ActivityValorar extends AppCompatActivity {
     FirebaseFirestore mFirestore;
     FirebaseAuth mAuth;
     Boolean trueFav=false;
-    Float valoracion ;
+    Float valoracion , guardarRating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,8 @@ public class ActivityValorar extends AppCompatActivity {
         no=findViewById(R.id.radioButtonNo);
         group=findViewById(R.id.radiogroup);
         usuario = "";
-        valoracion=1f;
+        valoracion=2f;
+        guardarRating=1f;
         peliculaserie = new Peliseri();
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -99,21 +100,24 @@ public class ActivityValorar extends AppCompatActivity {
 
         });
 
+        estrellitasValoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+
+                guardarRating= rating;
+                Log.d("RatingBar", "Rating changed: " + rating + ", fromUser: " + fromUser);
+
+            }
+        });
 
 
 
-//no recibe los datos,  valoracion sale null
         btnok.setOnClickListener(v -> {
 
-        //    valoracion.setValor(Double.valueOf(estrellitasValoracion.getRating()));
+           valoracion = guardarRating;
+           Log.d("rating bar",valoracion.toString());
+            Log.d("rating bar 2",String.valueOf(estrellitasValoracion.getRating()) );
 
-            estrellitasValoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-                @Override
-                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    // Asignar la calificación al objeto Valoracion
-                    valoracion= rating;
-                }
-            });
 
 
             valoracionRequest.setUsuario(usuario);

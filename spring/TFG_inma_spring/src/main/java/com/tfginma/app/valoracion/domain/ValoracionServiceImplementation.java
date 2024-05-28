@@ -35,7 +35,7 @@ public class ValoracionServiceImplementation implements IValoracionService {
 	@Override
 	public Optional<Float> getValoracionMedia(Long id) {
 		return valoracionRepository
-					.findAll()
+				/*	.findAll()
 						.stream().
 							flatMap(valoracion-> 
 								valoracion.getValoraciones()
@@ -50,7 +50,17 @@ public class ValoracionServiceImplementation implements IValoracionService {
 									.average()
 								    .stream()
 								    .mapToObj(avg -> (float) avg) 
-								    .findFirst();						
+								    .findFirst();					*/
+		
+		 .findAll()
+         .stream()
+         .flatMap(valoracion -> valoracion.getValoraciones().stream())
+         .filter(valoracionPeliUsuario -> valoracionPeliUsuario.getPeliculaSerie().getIdPeliculaSerie().equals(id))
+         .mapToDouble(valoracionPeliUsuario -> valoracionPeliUsuario.getValoracion().getValor())
+         .average()
+         .stream()
+         .mapToObj(avg -> (float) avg) 
+         .findFirst();
 	}
 
 	@Override

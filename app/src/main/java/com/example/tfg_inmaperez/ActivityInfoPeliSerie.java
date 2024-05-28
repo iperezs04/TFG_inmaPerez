@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.example.tfg_inmaperez.Domain.Peliseri;
 import com.example.tfg_inmaperez.Infrastructure.ApiClient;
 import com.example.tfg_inmaperez.Infrastructure.PeliService;
+import com.example.tfg_inmaperez.Infrastructure.ValoracionApiClient;
+import com.example.tfg_inmaperez.Infrastructure.ValoracionService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,7 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
     String emailrecogido;
 
     RatingBar ratinEstrellitas;
+    ValoracionService valoracionApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,9 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
         atras = findViewById(R.id.btnatrasMAA);
         listaPeliserie= new ArrayList<>();
         peliculaSerieApi = ApiClient.getClient().create(PeliService.class);
+
+       valoracionApi = ValoracionApiClient.getClient().create(ValoracionService.class);
+
 
         fetchPeliculaSerie();
 
@@ -164,10 +170,39 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
                         listaPeliserie.clear();
                         listaPeliserie.addAll(lisPeliSeri);
 
-                        pelicula= getPeli(id ,lisPeliSeri);
+                        pelicula = getPeli(id, lisPeliSeri);
                         setDatos(pelicula);
 
-                      //  myadapter.notifyDataSetChanged();
+
+
+                      Long peliculaSerieId = pelicula.getIdPeliculaSerie();
+
+
+                        Call<Float> callValoApi = valoracionApi.getValoracionMedia(peliculaSerieId);
+                        callValoApi.enqueue(new Callback<Float>() {
+                            @Override
+                            public void onResponse(Call<Float> callValoApi, Response<Float> response) {
+                                if (response.isSuccessful() && response.body() != null) {
+                                    float media = response.body();
+                                    ratinEstrellitas.setRating(media);
+                                    Log.d("error1", "estoy aqui funciona");
+                                    Log.d("ratin",String.valueOf(ratinEstrellitas.getRating()) );
+                                    Log.d("ratin", String.valueOf(media));
+                                } else {
+                                    Toast.makeText(ActivityInfoPeliSerie.this, "No se encontró la valoración", Toast.LENGTH_SHORT).show();
+                                    Log.d("error1", "estoy aqui que asco");
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Float> callValoApi, Throwable t) {
+                                Toast.makeText(ActivityInfoPeliSerie.this, "Error al obtener la valoración", Toast.LENGTH_SHORT).show();
+                                Log.e("MainActivity", "Error: ", t);
+                                Log.d("error1", "estoy aqui me muero");
+                            }
+                        });
+
+
 
                     } else {
                         // TODO
@@ -183,6 +218,6 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
             }
         });
 
-    }
+}
 
 }
