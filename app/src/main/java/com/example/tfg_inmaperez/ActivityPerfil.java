@@ -54,7 +54,7 @@ public class ActivityPerfil extends AppCompatActivity implements  MyRecyclerVIew
         mAuth = FirebaseAuth.getInstance();
 
         imagen = findViewById(R.id.imageViewperfil);
-        imagen.setImageResource(R.mipmap.screampeli_foreground);
+        imagen.setImageResource(R.mipmap.cineicono_foreground);
         atrass = findViewById(R.id.btnatrasMA1);
         nombre = findViewById(R.id.txtnombre);
         cerrarsesion = findViewById(R.id.btncerrarsesion);
@@ -218,7 +218,7 @@ public class ActivityPerfil extends AppCompatActivity implements  MyRecyclerVIew
 
     @Override
     public void onItemClick(View activista, int position) {
-        Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
         Intent intent= new Intent(activista.getContext(),ActivityInfoPeliSerie.class );
         intent.putExtra("id", myadapter.getItem(position).getIdPeliculaSerie());
 

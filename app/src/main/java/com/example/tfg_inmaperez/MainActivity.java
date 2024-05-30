@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
         bottomNavi = findViewById(R.id.bottomNavigationView);
         btnPelis = findViewById(R.id.buttonPelis);
         btnSeries = findViewById(R.id.buttonSeries);
-        imagenicon=findViewById(R.id.imageView3);
+       imagenicon=findViewById(R.id.imageView3);
         imagenicon.setImageResource(R.mipmap.claqueta_foreground);
         listaPeliserie= new ArrayList<>();
         pelisLista=new ArrayList<>();
@@ -66,13 +66,7 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
                 emailRecogido=intentemail.getStringExtra("email");
 
 
-       /* myadapter= new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
-        recyclerView = findViewById(R.id.recyclerView);
 
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setAdapter(myadapter);
-        myadapter.setClickListener(this);*/
         myadapter = new MyRecyclerVIewAdapter(getApplicationContext(), listaPeliserie);
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -201,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
                         myadapter.notifyDataSetChanged();
 
                     } else {
-                        // TODO
+
                     }
                 } else {
                     fetchImagefromURL(lisPeliSeri, peliseri);

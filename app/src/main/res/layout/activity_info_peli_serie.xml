@@ -4,38 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/fondopastel"
     tools:context=".ActivityInfoPeliSerie">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="197dp"
+        android:layout_height="215dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.339"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvtitulo"
-        android:layout_width="230dp"
-        android:layout_height="42dp"
+        android:layout_width="328dp"
+        android:layout_height="58dp"
         android:background="#75FFFFFF"
         android:backgroundTint="#22E3BDBD"
         android:fontFamily="@font/aladin"
         android:text="TITULO"
-        android:textColor="#070000"
-        android:textSize="34sp"
+        android:textColor="#6C1025"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <Button
         android:id="@+id/btnatrasMAA"
@@ -71,21 +71,21 @@
         android:layout_height="41dp"
         android:fontFamily="@font/amaranth_bold"
         android:text="Género:"
-        android:textColor="#070000"
+        android:textColor="#6C1025"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintVertical_bias="0.879" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="315dp"
+        android:layout_height="190dp"
 
 
         android:background="@drawable/edittext_bg"
@@ -99,10 +99,9 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintVertical_bias="0.818" />
 
     <TextView
         android:id="@+id/txtinfo"
@@ -112,14 +111,14 @@
         android:backgroundTint="#46F6F3F3"
         android:fontFamily="@font/amaranth_bold"
         android:text="Sinopsis"
-        android:textColor="#0B0000"
+        android:textColor="#6C1025"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <EditText
         android:id="@+id/edtGenero"
@@ -129,11 +128,13 @@
         android:backgroundTint="#5A3333"
         android:ems="10"
         android:inputType="text"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintVertical_bias="0.866" />
 
     <Button
         android:id="@+id/btnResenia"
@@ -157,13 +158,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/amaranth_bold"
         android:text="Valoracion Media"
-        android:textColor="#050000"
-        android:textSize="24sp"
+        android:textColor="#6C1025"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="0.12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

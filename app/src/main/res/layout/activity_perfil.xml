@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/fondopastel"
     tools:context=".ActivityPerfil">
 
     <Button
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aladin"
         android:text="nombre"
+        android:textColor="#6C1025"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +43,7 @@
         android:layout_height="37dp"
         android:fontFamily="@font/aladin"
         android:text="Series Favoritas"
+        android:textColor="#6C1025"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.106"
-        tools:srcCompat="@drawable/peli1" />
+        tools:srcCompat="@mipmap/cineicono_foreground" />
 
     <TextView
         android:id="@+id/textViewbienvenido"
@@ -100,6 +102,7 @@
         android:layout_height="43dp"
         android:fontFamily="@font/aladin"
         android:text="Hola de nuevo!"
+        android:textColor="#6C1025"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

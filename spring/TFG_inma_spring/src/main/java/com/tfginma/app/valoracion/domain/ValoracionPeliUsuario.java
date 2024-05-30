@@ -6,6 +6,7 @@ import com.tfginma.app.user.domain.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ public class ValoracionPeliUsuario {
 
 	@Id 
 	@ManyToOne
+	
 	private Valoracion valoracion;
 	@Id
 	@ManyToOne

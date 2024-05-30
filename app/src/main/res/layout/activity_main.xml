@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/fondopastel"
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="414dp"
         android:layout_height="61dp"
+
         app:backgroundTint="#0000BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,19 +43,19 @@
         style="@android:style/Widget.Material.Light.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#008A6C6C"
+        android:background="#009C27B0"
         android:backgroundTint="#00B87878"
         android:fontFamily="@font/amaranth_bold"
         android:text="Peliculas"
-        android:textColor="#06040B"
-        android:textSize="20sp"
+        android:textColor="#6C1025"
+        android:textSize="24sp"
         app:iconTint="#00CD6868"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.881" />
 
     <Button
         android:id="@+id/buttonSeries"
@@ -66,16 +67,16 @@
         android:fontFamily="@font/amaranth_bold"
         android:shadowColor="#A66868"
         android:text="Series"
-        android:textColor="#060813"
+        android:textColor="#6C1025"
         android:textColorHighlight="#6C3077"
         android:textColorLink="#C53838"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.881" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -83,8 +84,9 @@
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.042" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

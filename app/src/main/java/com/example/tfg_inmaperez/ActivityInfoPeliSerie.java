@@ -139,7 +139,7 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
 
                     } else {
 
-                        Toast.makeText(ActivityInfoPeliSerie.this, "No se encontraron películas o series", Toast.LENGTH_LONG).show();
+                     //   Toast.makeText(ActivityInfoPeliSerie.this, "No se encontraron películas o series", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Log.i("pruebita",response.code()+"");
@@ -189,7 +189,7 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
                                     Log.d("ratin",String.valueOf(ratinEstrellitas.getRating()) );
                                     Log.d("ratin", String.valueOf(media));
                                 } else {
-                                    Toast.makeText(ActivityInfoPeliSerie.this, "No se encontró la valoración", Toast.LENGTH_SHORT).show();
+                                  //  Toast.makeText(ActivityInfoPeliSerie.this, "No se encontró la valoración", Toast.LENGTH_SHORT).show();
                                     Log.d("error1", "estoy aqui que asco");
                                 }
                             }

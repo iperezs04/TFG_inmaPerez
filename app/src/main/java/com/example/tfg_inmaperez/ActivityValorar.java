@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
@@ -51,6 +52,7 @@ public class ActivityValorar extends AppCompatActivity {
     FirebaseAuth mAuth;
     Boolean trueFav=false;
     Float valoracion , guardarRating;
+    ImageView imagenvalo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,9 @@ public class ActivityValorar extends AppCompatActivity {
         peliculaserie = new Peliseri();
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        imagenvalo=findViewById(R.id.imgvalo);
+        imagenvalo.setImageResource(R.mipmap.valoracionicon_foreground);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 

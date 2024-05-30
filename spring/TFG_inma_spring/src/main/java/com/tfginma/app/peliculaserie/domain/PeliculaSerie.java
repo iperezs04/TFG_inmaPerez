@@ -58,8 +58,8 @@ public class PeliculaSerie {
 	private List<Comentario> comentario;
 
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Valoracion> valoracion;
+	//@ManyToMany(mappedBy="valoracion",cascade = CascadeType.ALL)
+	//private List<Valoracion> valoracion;
 	
 	public void setDatosModificados(PeliculaSerie peliculaSerie) {
 		 this.setTitulo(peliculaSerie.getTitulo());
