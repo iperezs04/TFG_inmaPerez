@@ -166,17 +166,13 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
 
                         Bitmap bmp = BitmapFactory.decodeStream(response.body().byteStream());
                         peliseri.setBmp(bmp);
-
                         listaPeliserie.clear();
                         listaPeliserie.addAll(lisPeliSeri);
 
                         pelicula = getPeli(id, lisPeliSeri);
                         setDatos(pelicula);
 
-
-
                       Long peliculaSerieId = pelicula.getIdPeliculaSerie();
-
 
                         Call<Float> callValoApi = valoracionApi.getValoracionMedia(peliculaSerieId);
                         callValoApi.enqueue(new Callback<Float>() {
@@ -189,16 +185,14 @@ public class ActivityInfoPeliSerie extends AppCompatActivity {
                                     Log.d("ratin",String.valueOf(ratinEstrellitas.getRating()) );
                                     Log.d("ratin", String.valueOf(media));
                                 } else {
-                                  //  Toast.makeText(ActivityInfoPeliSerie.this, "No se encontró la valoración", Toast.LENGTH_SHORT).show();
-                                    Log.d("error1", "estoy aqui que asco");
+                                    Log.d("error1", "estoy aqui no funciona. lloro");
                                 }
                             }
-
                             @Override
                             public void onFailure(Call<Float> callValoApi, Throwable t) {
                                 Toast.makeText(ActivityInfoPeliSerie.this, "Error al obtener la valoración", Toast.LENGTH_SHORT).show();
                                 Log.e("MainActivity", "Error: ", t);
-                                Log.d("error1", "estoy aqui me muero");
+                                Log.d("error1", "estoy aqui me muero y la aplicacion tambien");
                             }
                         });
 

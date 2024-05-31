@@ -49,9 +49,9 @@ public class PeliculaSerie {
 	
 	private String imagen;
 	
-	@ManyToMany
-	@JoinTable(name = "UserPeliFav")
-	private List<User> usuario;
+	//@ManyToMany
+	//@JoinTable(name = "UserPeliFav")
+	//private List<User> usuario;
 	private float valoracionMedia;
 	
 	@ManyToMany(cascade = CascadeType.ALL)

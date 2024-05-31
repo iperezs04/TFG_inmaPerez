@@ -83,9 +83,6 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
                         .getTipo()
                         .toLowerCase()
                         .contains(tiposerie.toLowerCase())).collect(Collectors.toList());
-
-
-
                 myadapter.setLista(seriesLista);
             }else{
                 myadapter.setLista(listaPeliserie);
@@ -157,10 +154,7 @@ public class MainActivity extends AppCompatActivity implements  MyRecyclerVIewAd
                         peliculasSeries.forEach(peliseri -> {
                             fetchImagefromURL(peliculasSeries, peliseri);
                         });
-
-
                     } else {
-
                         Toast.makeText(MainActivity.this, "No se encontraron películas o series", Toast.LENGTH_LONG).show();
                     }
                 } else {

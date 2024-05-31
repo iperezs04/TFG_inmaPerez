@@ -83,7 +83,6 @@ public class ActivityValorar extends AppCompatActivity {
         ValoracionService apiServiceValoracion = ValoracionApiClient.getClient().create(ValoracionService.class);
 
 
-
         ValoracionRequest valoracionRequest = new ValoracionRequest(valoracion, usuario, idPelicula);
         peliculaSerieApi = ApiClient.getClient().create(PeliService.class);
 
@@ -111,19 +110,13 @@ public class ActivityValorar extends AppCompatActivity {
 
                 guardarRating= rating;
                 Log.d("RatingBar", "Rating changed: " + rating + ", fromUser: " + fromUser);
-
             }
         });
 
-
-
         btnok.setOnClickListener(v -> {
-
            valoracion = guardarRating;
            Log.d("rating bar",valoracion.toString());
-            Log.d("rating bar 2",String.valueOf(estrellitasValoracion.getRating()) );
-
-
+           Log.d("rating bar 2",String.valueOf(estrellitasValoracion.getRating()) );
 
             valoracionRequest.setUsuario(usuario);
             valoracionRequest.setPeliserie(idPelicula);
@@ -147,10 +140,8 @@ public class ActivityValorar extends AppCompatActivity {
                     Log.e("Activityvalorar", "Request fallida", t);
                 }
             });
-
+//para guardar pelia favorito
                 if(trueFav){
-
-
                     String email = currentUser.getEmail();
 
                     Call<Peliseri> call = apiServiceUser.addPeliFav(email, idPelicula);

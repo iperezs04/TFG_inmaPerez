@@ -166,16 +166,12 @@ public class ActivityBuscar extends AppCompatActivity implements  MyRecyclerView
     }
 
     public void filtrar(String texto) {
-
         Log.i("filtrar", texto);
         if (!texto.isEmpty()) {
             pelisfiltradas= listaPeliserie.stream().filter(peliseri -> peliseri
                     .getTitulo()
                     .toLowerCase()
                     .contains(texto.toLowerCase())).collect(Collectors.toList());
-
-
-
             myadapter.setLista(pelisfiltradas);
         }else{
             myadapter.setLista(listaPeliserie);
